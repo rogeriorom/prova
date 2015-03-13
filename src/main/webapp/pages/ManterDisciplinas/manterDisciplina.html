@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../angular.min.js"></script>
+        <script src="manterDisciplina.js"></script>
+    </head>
+    <body ng-controller="disciplinaController;listar()">
+        <div>
+            <label>ID</label>
+            <input type="text" ng-model="disciplina.id">
+            <label>Nome</label>
+            <input type="text" ng-model="disciplina.nome">
+            <label>Carga Horária</label>
+            <input type="text" ng-model="disciplina.cargaHoraria">
+            <label>Peso</label>
+            <input type="text" ng-model="disciplina.peso">
+            <button ng-click="salvar()">Salvar</button>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>nome</th>
+                    <th>carga horaria</th>
+                    <th>peso</th>
+                    <th>Opções</th>
+                </tr>
+                <tr ng-repeat="d em disciplinas">
+                    <td>{{d.id}}</td>
+                    <td>{{d.nome}}</td>
+                    <td>{{d.cargaHoraria}}</td>
+                    <td>{{d.peso}}</td>
+                    <td><button ng-click="Alterar(d)">Alterar(d)</button><button ng-click="Deletar(d.id)">Excluir</button></td>
+                </tr>
+            </table>
+            <button ng-click="Listar()">F5 tambem atualiza a grid</button>
+            
+        </div>
+    </body>    
+</html>
